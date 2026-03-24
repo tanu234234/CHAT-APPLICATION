@@ -9,19 +9,15 @@ const io = new Server(server);
 app.use(express.static("public"));
 
 io.on("connection", (socket) => {
-    console.log("User connected");
 
-    socket.on("chat message", (msg) => {
-        io.emit("chat message", msg);
-    });
+socket.on("chat message", (data) => {
 
-    socket.on("disconnect", () => {
-        console.log("User disconnected");
-    });
+socket.broadcast.emit("chat message", data);
+
 });
 
-const PORT = process.env.PORT || 3000;
+});
 
-server.listen(PORT, () => {
-    console.log("Server running on port " + PORT);
+server.listen(3000, () => {
+    console.log("Server running on port 3000");
 });

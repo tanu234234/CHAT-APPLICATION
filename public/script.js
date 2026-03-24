@@ -1,22 +1,39 @@
 const socket = io();
+const myId = socket.id;
 
-function sendMessage() {
+function sendMessage(){
 
-    const username = document.getElementById("username").value;
-    const message = document.getElementById("messageInput").value;
+const input = document.getElementById("messageInput");
+const message = input.value;
 
-    const fullMessage = username + ": " + message;
+if(message.trim() !== ""){
 
-    socket.emit("chat message", fullMessage);
+socket.emit("chat message", {
+text: message,
+sender: socket.id
+});
 
-    document.getElementById("messageInput").value = "";
+addMessage(message,"sent");
+
+input.value="";
 }
 
-socket.on("chat message", function(msg) {
+}
 
-    const li = document.createElement("li");
-    li.textContent = msg;
+socket.on("chat message", function(data){
 
-    document.getElementById("messages").appendChild(li);
+if(data.sender !== socket.id){
+addMessage(data.text,"received");
+}
 
 });
+
+function addMessage(msg,type){
+
+const li = document.createElement("li");
+li.className = type;
+li.textContent = msg;
+
+document.getElementById("messages").appendChild(li);
+
+}

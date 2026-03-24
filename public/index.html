@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Real Time Chat</title>
+<title>Live Chat</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h2>Real Time Chat</h2>
+<div class="chat-container">
 
-<input id="username" placeholder="Enter your name" />
-<br><br>
+<h2>Live Chat App</h2>
 
 <ul id="messages"></ul>
 
-<input id="messageInput" placeholder="Type message..." />
+<div class="input-area">
+<input id="messageInput" placeholder="Type message..."/>
 <button onclick="sendMessage()">Send</button>
+</div>
+
+</div>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="script.js"></script>
