@@ -90,5 +90,11 @@ This project demonstrates how **WebSocket-based communication using Socket.IO** 
 
 # Output 
 
+Server 1:
+
 <img width="685" height="665" alt="Image" src="https://github.com/user-attachments/assets/b095c15d-dcb9-4fd8-a714-4af0cc701613" />
+
+Server 2:
+
+<img width="744" height="671" alt="Image" src="https://github.com/user-attachments/assets/e8584884-3fdc-4fc6-9f25-9e44f5796864" />
 
